@@ -13,7 +13,7 @@ public final class Lexer {
     private final Deque<Integer> indents = new ArrayDeque<>();
 
     private static final Map<String, TokenType> KEYWORDS = Map.ofEntries(
-        Map.entry("ধরো", TokenType.DHORO),
+        Map.entry("মনোখরো", TokenType.DHORO),
         Map.entry("জুদি", TokenType.JUDI),
         Map.entry("আরজুদি", TokenType.ARJUDI),
         Map.entry("আন্নায়", TokenType.ANNAY),
