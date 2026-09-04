@@ -1,0 +1,5 @@
+build/
+*.class
+samples/*.py
+.DS_Store
+.vscode/*.log

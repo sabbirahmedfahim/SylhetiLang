@@ -1,0 +1,105 @@
+<program> ::= <top-list> EOF
+
+<top-list> ::= <top-item> <top-list> | ε
+<top-item> ::= <simple-statement> NEWLINE
+             | <if-statement>
+             | <while-statement>
+             | <for-statement>
+             | <function-declaration>
+
+<block> ::= NEWLINE INDENT <block-list> DEDENT
+<block-list> ::= <block-item> <block-list> | ε
+<block-item> ::= <simple-statement> NEWLINE
+               | <if-statement>
+               | <while-statement>
+               | <for-statement>
+
+<simple-statement> ::= <variable-declaration>
+                     | <assignment>
+                     | <return-statement>
+                     | <break-statement>
+                     | <continue-statement>
+                     | <expression-statement>
+
+<variable-declaration> ::= "ধরো" IDENTIFIER ":" <type> "=" <expression>
+<assignment> ::= IDENTIFIER "=" <expression>
+<return-statement> ::= "ফিরিজাও" <return-value-opt>
+<return-value-opt> ::= <expression> | ε
+<break-statement> ::= "আটকিজাও"
+<continue-statement> ::= "ছালাইয়াজাও"
+<expression-statement> ::= <expression>
+
+<if-statement> ::= "জুদি" <expression> ":" <block> <elif-list> <else-opt>
+<elif-list> ::= "আরজুদি" <expression> ":" <block> <elif-list> | ε
+<else-opt> ::= "আন্নায়" ":" <block> | ε
+
+<while-statement> ::= "যতবিল" <expression> ":" <block>
+
+<for-statement> ::= "লাগিরও" IDENTIFIER "ভিতরে" <range-call> ":" <block>
+<range-call> ::= "রেঞ্জ" "(" <range-arguments> ")"
+<range-arguments> ::= <expression>
+                    | <expression> "," <expression>
+                    | <expression> "," <expression> "," <expression>
+
+<function-declaration> ::= "ফাংশন" IDENTIFIER "(" <parameter-list-opt> ")" <return-type-opt> ":" <block>
+<parameter-list-opt> ::= <parameter-list> | ε
+<parameter-list> ::= <parameter> <parameter-tail>
+<parameter-tail> ::= "," <parameter> <parameter-tail> | ε
+<parameter> ::= IDENTIFIER ":" <type>
+<return-type-opt> ::= "->" <type> | ε
+
+<type> ::= "ফুরালম্বর"
+         | "বাঙ্গালম্বর"
+         | "দড়ি"
+         | "হাছামিছা"
+
+<expression> ::= <or-expression>
+
+<or-expression> ::= <and-expression> <or-tail>
+<or-tail> ::= "অথবা" <and-expression> <or-tail> | ε
+
+<and-expression> ::= <not-expression> <and-tail>
+<and-tail> ::= "এবং" <not-expression> <and-tail> | ε
+
+<not-expression> ::= "নায়" <not-expression> | <comparison>
+
+<comparison> ::= <additive> <comparison-opt>
+<comparison-opt> ::= <comparison-op> <additive> | ε
+<comparison-op> ::= "==" | "!=" | ">" | "<" | ">=" | "<="
+
+<additive> ::= <multiplicative> <additive-tail>
+<additive-tail> ::= "+" <multiplicative> <additive-tail>
+                  | "-" <multiplicative> <additive-tail>
+                  | ε
+
+<multiplicative> ::= <unary> <multiplicative-tail>
+<multiplicative-tail> ::= "*" <unary> <multiplicative-tail>
+                        | "/" <unary> <multiplicative-tail>
+                        | "%" <unary> <multiplicative-tail>
+                        | ε
+
+<unary> ::= "-" <unary> | <call-or-primary>
+
+<call-or-primary> ::= <call> | <primary>
+<call> ::= <callable> "(" <argument-list-opt> ")"
+<callable> ::= IDENTIFIER | <builtin>
+<argument-list-opt> ::= <argument-list> | ε
+<argument-list> ::= <expression> <argument-tail>
+<argument-tail> ::= "," <expression> <argument-tail> | ε
+
+<primary> ::= INT
+            | FLOAT
+            | STRING
+            | "হাছা"
+            | "মিছা"
+            | "কিচ্ছুনায়"
+            | IDENTIFIER
+            | <builtin>
+            | "(" <expression> ")"
+
+<builtin> ::= "আউটফুট"
+            | "ইনফুট"
+            | "রেঞ্জ"
+            | "সবরহুরু"
+            | "সবরবড়"
+            | "গোল"

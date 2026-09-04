@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+if [ ! -d "$ROOT/build/classes" ]; then
+  "$ROOT/build.sh"
+fi
+java -cp "$ROOT/build/classes" com.sylhetic.Main "$@"
