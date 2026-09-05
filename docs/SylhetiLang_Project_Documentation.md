@@ -232,7 +232,7 @@ The lexer converts raw Unicode characters into tokens.
 Example source:
 
 ```text
-ধরো বয়স : ফুরালম্বর = ২২
+মনোখরো বয়স : ফুরালম্বর = ২২
 ```
 
 Important token sequence:
@@ -247,7 +247,7 @@ The lexer contains a static keyword mapping. Important mappings include:
 
 | SylhetiLang | Token type | Meaning |
 |---|---|---|
-| `ধরো` | `DHORO` | declaration |
+| `মনোখরো` | `DHORO` | declaration |
 | `জুদি` | `JUDI` | if |
 | `আরজুদি` | `ARJUDI` | elif |
 | `আন্নায়` | `ANNAY` | else |
@@ -351,7 +351,7 @@ column
 A conceptual token may look like:
 
 ```text
-Token(DHORO, "ধরো", null, 1, 1)
+Token(DHORO, "মনোখরো", null, 1, 1)
 ```
 
 Line and column information is carried forward so later phases can report useful diagnostics.
@@ -574,7 +574,7 @@ It handles:
 Example:
 
 ```text
-ধরো সংখ্যা : ফুরালম্বর = "ভুল"
+মনোখরো সংখ্যা : ফুরালম্বর = "ভুল"
 ```
 
 The parser accepts this because its grammar is valid. The semantic analyzer rejects it because the declared type is integer and the initializer type is string.
@@ -617,7 +617,7 @@ ERROR
 ### Explicit declaration
 
 ```text
-ধরো বয়স : ফুরালম্বর = ২২
+মনোখরো বয়স : ফুরালম্বর = ২২
 ```
 
 The type annotation is mandatory.
@@ -631,8 +631,8 @@ Allowed.
 Allowed.
 
 ```text
-ধরো ক : ফুরালম্বর = ৫
-ধরো ফল : বাঙ্গালম্বর = ক
+মনোখরো ক : ফুরালম্বর = ৫
+মনোখরো ফল : বাঙ্গালম্বর = ক
 ```
 
 ### Float to int
@@ -838,7 +838,7 @@ print("হ্যালো")
 ## Console input
 
 ```text
-ধরো নাম : দড়ি = ইনফুট("নাম: ")
+মনোখরো নাম : দড়ি = ইনফুট("নাম: ")
 ```
 
 becomes a Python `input(...)` call.
@@ -1032,7 +1032,7 @@ A personal working program used to verify normal compile-and-run flow.
 Consider:
 
 ```text
-ধরো বয়স : ফুরালম্বর = ২২
+মনোখরো বয়স : ফুরালম্বর = ২২
 জুদি বয়স >= ১৮:
     আউটফুট("প্রাপ্তবয়স্ক")
 ```
@@ -1427,10 +1427,10 @@ The Java program is the compiler. The `.py` file is generated target code.
 ## Declaration
 
 ```text
-ধরো নাম : দড়ি = "সাব্বির"
-ধরো বয়স : ফুরালম্বর = ২২
-ধরো দাম : বাঙ্গালম্বর = ১২.৫
-ধরো চালু : হাছামিছা = হাছা
+মনোখরো নাম : দড়ি = "সাব্বির"
+মনোখরো বয়স : ফুরালম্বর = ২২
+মনোখরো দাম : বাঙ্গালম্বর = ১২.৫
+মনোখরো চালু : হাছামিছা = হাছা
 ```
 
 ## Assignment
